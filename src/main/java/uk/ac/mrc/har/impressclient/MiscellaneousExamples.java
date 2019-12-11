@@ -23,11 +23,15 @@ package uk.ac.mrc.har.impressclient;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static uk.ac.mrc.har.impressclient.Main.post;
 import static uk.ac.mrc.har.impressclient.Main.restURL;
+import uk.ac.mrc.har.impressclient.entities.Parameter;
+import uk.ac.mrc.har.impressclient.entities.ParameterGroup;
 import uk.ac.mrc.har.impressclient.entities.Procedure;
 import uk.ac.mrc.har.impressclient.entities.Schedule;
 
@@ -38,6 +42,27 @@ import uk.ac.mrc.har.impressclient.entities.Schedule;
  */
 public class MiscellaneousExamples {
     
+    public static void parameterGroupExample(){
+        try {
+            Procedure p = Main.get(Main.ItemType.PROCEDURE, 944);
+            Collection<Parameter> paramList = Main.post(Main.ItemType.PARAMETER, p.getParameterCollection());
+            List<Integer> pgIdList = new ArrayList<>();
+            paramList.stream().forEach(para -> pgIdList.add(para.getParameterGroup()));
+            Collection<ParameterGroup> pgList = Main.post(Main.ItemType.PARAMETERGROUP, pgIdList);
+            Map<Integer, ParameterGroup> pgMap = new HashMap<>();
+            pgList.stream().forEach(pg -> pgMap.put(pg.getParameterGroupId(), pg));
+            
+            
+            for (Parameter para : paramList) {
+                Integer id = para.getParameterGroup();
+                System.out.println("Parameter "+para.getParameterKey()+" is in parameter group "+id+", "+pgMap.get(id).getName());
+            }
+            
+        } catch (IOException ex) {
+            Logger.getLogger(MiscellaneousExamples.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
     public static void EmbroyonicProceduresAllPipelines() {
         try {
             // Quick search for schedules that contain Embryonic procedures
