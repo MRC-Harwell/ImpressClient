@@ -122,4 +122,8 @@ public class OntologyTerm implements Serializable {
         this.paramOntologyoptionCollection = paramOntologyoptionCollection;
     }
 
+    @Override
+    public String toString() {
+        return "OntologyTerm{" + "paramOntologyoptionCollection=" + paramOntologyoptionCollection + ", ontologyTermId=" + ontologyTermId + ", ontologyTerm=" + ontologyTerm + ", ontologyTermName=" + ontologyTermName + ", nodeType=" + nodeType + ", nodeCollection=" + nodeCollection + ", leafCollection=" + leafCollection + ", paramMptermCollection=" + paramMptermCollection + '}';
+    }
 }
