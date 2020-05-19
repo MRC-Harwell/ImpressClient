@@ -2,4 +2,5 @@
 Entities and Sample code for creating clients to the new IMPReSS REST API
 
 ## Changelog
-* 11/1/19 - moved from internal Gitlab to Github.
+Please refer to the changelog hosted at 
+https://www.mousephenotype.org/phenodcc/impress-api-changelog

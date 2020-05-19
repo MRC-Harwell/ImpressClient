@@ -44,8 +44,6 @@ public class Parameter implements Serializable {
     private boolean isOption;
     private boolean isRequired;
     private boolean qcCheck;
-    private Float qcMin;
-    private Float qcMax;
     private String qcNotes;
     private String valueType = "TEXT";
     private String graphType;
@@ -53,7 +51,7 @@ public class Parameter implements Serializable {
     private boolean isInternal;
     private boolean isDeleted;
     private String oldParameterKey;
-    private Integer originalParamId;
+    private Integer parameterGroup;
     private Integer ontologyGroupId;
     private int weight;
     private Integer procedureId;
@@ -242,22 +240,6 @@ public class Parameter implements Serializable {
         this.qcCheck = qcCheck;
     }
 
-    public Float getQcMin() {
-        return qcMin;
-    }
-
-    public void setQcMin(Float qcMin) {
-        this.qcMin = qcMin;
-    }
-
-    public Float getQcMax() {
-        return qcMax;
-    }
-
-    public void setQcMax(Float qcMax) {
-        this.qcMax = qcMax;
-    }
-
     public String getQcNotes() {
         return qcNotes;
     }
@@ -322,7 +304,13 @@ public class Parameter implements Serializable {
         this.procedureId = procedureId;
     }
 
-    
+    public Integer getParameterGroup() {
+        return parameterGroup;
+    }
+
+    public void setParameterGroup(Integer parameterGroup) {
+        this.parameterGroup = parameterGroup;
+    }
 
     public Units getUnit() {
         return unit;
@@ -354,17 +342,6 @@ public class Parameter implements Serializable {
 
     public void setParammptermCollection(Collection<Integer> parammptermCollection) {
         this.parammptermCollection = parammptermCollection;
-    }
-    
-
-
-    
-    public Integer getOriginalParamId() {
-        return originalParamId;
-    }
-
-    public void setOriginalParamId(Integer originalParamId) {
-        this.originalParamId = originalParamId;
     }
 
     public Integer getOntologyGroupId() {

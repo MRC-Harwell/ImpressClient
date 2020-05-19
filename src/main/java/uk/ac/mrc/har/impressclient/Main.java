@@ -23,8 +23,6 @@ package uk.ac.mrc.har.impressclient;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import uk.ac.mrc.har.impressclient.entities.Increment;
 import uk.ac.mrc.har.impressclient.entities.OntologyGroup;
 import uk.ac.mrc.har.impressclient.entities.OntologyTerm;
@@ -32,6 +30,7 @@ import uk.ac.mrc.har.impressclient.entities.Option;
 import uk.ac.mrc.har.impressclient.entities.ParamMpterm;
 import uk.ac.mrc.har.impressclient.entities.ParamOntologyoption;
 import uk.ac.mrc.har.impressclient.entities.Parameter;
+import uk.ac.mrc.har.impressclient.entities.ParameterGroup;
 import uk.ac.mrc.har.impressclient.entities.Parent;
 import uk.ac.mrc.har.impressclient.entities.Pipeline;
 import uk.ac.mrc.har.impressclient.entities.Procedure;
@@ -43,7 +42,7 @@ import uk.ac.mrc.har.impressclient.entities.Units;
 public class Main {
 
     // Change this to api.mousephenotype.org/impress when we go live.
-    static String restURL = "http://sandbox.mousephenotype.org/impress/";
+    static String restURL = "http://sandbox.mousephenotype.org/impressapi/";
 
     /**
      * 
@@ -103,6 +102,12 @@ public class Main {
             @Override
             public Class getClazz() {
                 return Parameter.class;
+            }
+        },
+        PARAMETERGROUP {
+            @Override
+            public Class getClazz() {
+                return ParameterGroup.class;
             }
         },
         PARAMMPTERM {

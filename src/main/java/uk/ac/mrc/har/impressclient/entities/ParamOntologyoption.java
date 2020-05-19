@@ -23,9 +23,8 @@ package uk.ac.mrc.har.impressclient.entities;
 import java.io.Serializable;
 
 public class ParamOntologyoption implements Serializable {
-    private OntologyTerm ontologyTermId;
+    private Integer ontologyTermId;
 
-    
     private Integer paramOntologyoptionId;
     private boolean isDefault;
     private boolean isActive;
@@ -123,11 +122,11 @@ public class ParamOntologyoption implements Serializable {
         return !((this.paramOntologyoptionId == null && other.paramOntologyoptionId != null) || (this.paramOntologyoptionId != null && !this.paramOntologyoptionId.equals(other.paramOntologyoptionId)));
     }
 
-    public OntologyTerm getOntologyTermId() {
+    public Integer getOntologyTermId() {
         return ontologyTermId;
     }
 
-    public void setOntologyTermId(OntologyTerm ontologyTermId) {
+    public void setOntologyTermId(Integer ontologyTermId) {
         this.ontologyTermId = ontologyTermId;
     }
 
