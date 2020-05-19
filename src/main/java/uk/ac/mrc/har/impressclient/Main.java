@@ -42,7 +42,7 @@ import uk.ac.mrc.har.impressclient.entities.Units;
 public class Main {
 
     // Change this to api.mousephenotype.org/impress when we go live.
-    static String restURL = "http://sandbox.mousephenotype.org/impressapi/";
+    static String restURL = "http://api.mousephenotype.org/impress/";
 
     /**
      * 
