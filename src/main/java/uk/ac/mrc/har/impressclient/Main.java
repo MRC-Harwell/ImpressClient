@@ -41,8 +41,7 @@ import uk.ac.mrc.har.impressclient.entities.Units;
 
 public class Main {
 
-    // Change this to api.mousephenotype.org/impress when we go live.
-    static String restURL = "http://api.mousephenotype.org/impress/";
+    public static String restURL = "https://api.mousephenotype.org/impress/";
 
     /**
      * 
@@ -69,7 +68,7 @@ public class Main {
         List<T> itemList = (List<T>) JacksonConverter.fromJSON_Collection(rtns.getBody(), itemType.getClazz());
         return itemList;
     }
-
+    
     /**
      * Lists possible 'item' types.
      */

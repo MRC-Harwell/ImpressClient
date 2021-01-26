@@ -38,7 +38,7 @@ public class Pipeline implements Serializable {
     private String description;
     private boolean isInternal;
     private boolean isDeleted;
-    private String centreName;
+    private Integer centreId;
     private Short impc;
     private Collection<Integer> scheduleCollection;
 
@@ -158,12 +158,12 @@ public class Pipeline implements Serializable {
         this.isDeleted = isDeleted;
     }
 
-    public String getCentreName() {
-        return centreName;
+    public Integer getCentreId() {
+        return centreId;
     }
 
-    public void setCentreName(String centreName) {
-        this.centreName = centreName;
+    public void setCentreId(Integer centreId) {
+        this.centreId = centreId;
     }
 
     public Short getImpc() {

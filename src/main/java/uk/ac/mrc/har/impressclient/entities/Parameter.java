@@ -55,6 +55,7 @@ public class Parameter implements Serializable {
     private Integer ontologyGroupId;
     private int weight;
     private Integer procedureId;
+    private Integer comparableParameterGroup;
     private Units unit;
     private Collection<Integer> incrementCollection;
     private Collection<Integer> optionCollection;
@@ -359,6 +360,16 @@ public class Parameter implements Serializable {
     public void setWeight(int weight) {
         this.weight = weight;
     }
+
+    public Integer getComparableParameterGroup() {
+        return comparableParameterGroup;
+    }
+
+    public void setComparableParameterGroup(Integer comparableParameterGroup) {
+        this.comparableParameterGroup = comparableParameterGroup;
+    }
+    
+    
     @Override
     public int hashCode() {
         int hash = 0;

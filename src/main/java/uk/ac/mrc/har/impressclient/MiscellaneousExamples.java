@@ -46,9 +46,20 @@ import uk.ac.mrc.har.impressclient.entities.Schedule;
 public class MiscellaneousExamples {
 
     public static void main(String[] args) {
-        parameterOntologyOptionExample();
+        getScheduleStageFromXML("IMPC_001", "IMPC_GEL_003");
     }
 
+    public static void getScheduleStageFromXML(String pipeline_key, String procedure_key) {
+        try {
+            String json = HttpClient.getJSON(restURL + "procedure/bykey/" + procedure_key + "/" + pipeline_key);
+            Procedure p = JacksonConverter.fromJSON(json, Procedure.class);
+            Schedule s = Main.get(Main.ItemType.SCHEDULE, p.getScheduleId());
+            System.out.println(s.getStage());
+        } catch (IOException ex) {
+            Logger.getLogger(MiscellaneousExamples.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public static void parameterOntologyOptionExample() {
         try {
             Parameter p = Main.get(Main.ItemType.PARAMETER, 37189);

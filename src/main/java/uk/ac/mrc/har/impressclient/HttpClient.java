@@ -35,12 +35,12 @@ import org.apache.http.util.EntityUtils;
 
 public class HttpClient {
 
-    public static MyResponse postJSON(String url, String jsonData) throws IOException {
+    public static MyResponse post(String url, String cType, String bodyData) throws IOException {
         CloseableHttpClient httpclient = HttpClients.createDefault();
 
         HttpPost put = new HttpPost(url);
-        put.setHeader("Content-Type", "application/json");
-        StringEntity params = new StringEntity(jsonData, "UTF-8");
+        put.setHeader("Content-Type", cType);
+        StringEntity params = new StringEntity(bodyData, "UTF-8");
         put.setEntity(params);
 
         System.out.println("Executing request " + put.getRequestLine());
@@ -56,6 +56,14 @@ public class HttpClient {
         System.out.println("----------------------------------------");
         return responseBody;
 
+    }
+
+    public static MyResponse postJSON(String url, String jsonData) throws IOException {
+        return post(url, "application/json", jsonData);
+    }
+
+    public static MyResponse postSearch(String bodyData) throws IOException {
+        return post(Main.restURL + "search", "application/json", bodyData);
     }
 
     public static String getJSON(String url) throws IOException {
@@ -99,8 +107,6 @@ public class HttpClient {
     public static String createErrorMessage(String s) {
         return "{\"message\": \"" + s + "\"}";
     }
-    
-    
 
     /**
      * Simple wrapper for responses.
