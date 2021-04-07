@@ -60,6 +60,7 @@ public class Parameter implements Serializable {
     private Collection<Integer> incrementCollection;
     private Collection<Integer> optionCollection;
     private Collection<Integer> parammptermCollection;
+    private String analysisWithBodyweight;
     
     public Parameter() {
     }
@@ -368,6 +369,16 @@ public class Parameter implements Serializable {
     public void setComparableParameterGroup(Integer comparableParameterGroup) {
         this.comparableParameterGroup = comparableParameterGroup;
     }
+
+    public String getAnalysisWithBodyweight() {
+        return analysisWithBodyweight;
+    }
+
+    public void setAnalysisWithBodyweight(String analysisWithBodyweight) {
+        this.analysisWithBodyweight = analysisWithBodyweight;
+    }
+    
+    
     
     
     @Override
